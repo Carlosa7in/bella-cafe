@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bella Café - Un tintico por favor. Café de especialidad en Zihuatanejo, Guerrero. Bebidas calientes, frías, smoothies, sodas italianas y pasteles artesanales.">
+    <title>Bella Café | Un tintico por favor</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Bella <span>Café</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <svg class="hero-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Coffee cup -->
+                <path d="M20 45 Q20 75, 50 75 Q80 75, 80 45 L80 40 L20 40 Z" fill="#8B5A2B" stroke="#8B5A2B" stroke-width="2"/>
+                <path d="M80 45 Q95 45, 95 55 Q95 65, 80 65" fill="none" stroke="#8B5A2B" stroke-width="4" stroke-linecap="round"/>
+                <!-- Steam -->
+                <path d="M35 30 Q30 20, 35 10" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <path d="M50 30 Q55 15, 50 5" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <path d="M65 30 Q60 20, 65 10" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <!-- Leaf -->
+                <path d="M50 25 Q60 15, 55 5 Q50 15, 50 25" fill="#F26522"/>
+            </svg>
+            <h1>Bella <span>Café</span></h1>
+            <p class="tagline">Un tintico por favor</p>
+            <a href="#menu" class="cta-button">Ver Menú</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="section-header fade-in">
+            <h2>Nuestra Historia</h2>
+            <p>Donde cada taza cuenta una historia</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>En el corazón de Zihuatanejo nació <strong>Bella Café</strong>, un espacio donde el aroma del café de especialidad se mezcla con la brisa del Pacífico.</p>
+                <p>Creamos un refugio moderno y elegante para estudiantes, profesionales y amantes del buen café. Aquí, cada bebida es preparada con dedicación, desde nuestros expresos perfectamente extraídos hasta nuestras refrescantes sodas italianas.</p>
+                <p>Más que una cafetería, somos tu pausa perfecta en el paraíso.</p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="/Bella cafe 1.jpg" alt="Interior de Bella Café">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="section-header fade-in">
+            <h2>Nuestro Menú</h2>
+            <p>Bebidas artesanales y pasteles frescos</p>
+        </div>
+        <div class="menu-grid">
+            <!-- Bebidas Calientes -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">☕</div>
+                <h3>Bebidas Calientes</h3>
+                <ul>
+                    <li><span class="menu-item-name">Americano</span><span class="menu-item-price">$45</span></li>
+                    <li><span class="menu-item-name">Espresso</span><span class="menu-item-price">$35</span></li>
+                    <li><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Latte</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Mocha</span><span class="menu-item-price">$60</span></li>
+                </ul>
+            </div>
+
+            <!-- Bebidas Frías -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🧊</div>
+                <h3>Bebidas Frías</h3>
+                <ul>
+                    <li><span class="menu-item-name">Cold Brew</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Iced Latte</span><span class="menu-item-price">$60</span></li>
+                    <li><span class="menu-item-name">Frappé</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Iced Americano</span><span class="menu-item-price">$50</span></li>
+                </ul>
+            </div>
+
+            <!-- Tés y Tisanas -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🍵</div>
+                <h3>Tés y Tisanas</h3>
+                <ul>
+                    <li><span class="menu-item-name">Té Verde</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Té Negro</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Chai Latte</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Matcha Latte</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Tisana de Frutas</span><span class="menu-item-price">$45</span></li>
+                </ul>
+            </div>
+
+            <!-- Smoothies -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🥤</div>
+                <h3>Smoothies</h3>
+                <ul>
+                    <li><span class="menu-item-name">Tropical</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Berry Blast</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Green Power</span><span class="menu-item-price">$70</span></li>
+                    <li><span class="menu-item-name">Mango Paradise</span><span class="menu-item-price">$65</span></li>
+                </ul>
+            </div>
+
+            <!-- Sodas Italianas -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🍹</div>
+                <h3>Sodas Italianas</h3>
+                <ul>
+                    <li><span class="menu-item-name">Frambuesa</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Maracuyá</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Lavanda</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Menta</span><span class="menu-item-price">$50</span></li>
+                </ul>
+            </div>
+
+            <!-- Pasteles -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🥐</div>
+                <h3>Pasteles</h3>
+                <ul>
+                    <li><span class="menu-item-name">Croissant</span><span class="menu-item-price">$45</span></li>
+                    <li><span class="menu-item-name">Muffin del Día</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Cheesecake</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Brownie</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Galletas (3 pzas)</span><span class="menu-item-price">$35</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="section-header fade-in">
+            <h2>Galería</h2>
+            <p>Momentos en Bella Café</p>
+        </div>
+        <div class="carousel fade-in">
+            <button class="carousel-arrow carousel-prev" aria-label="Anterior">&#8249;</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track"></div>
+            </div>
+            <button class="carousel-arrow carousel-next" aria-label="Siguiente">&#8250;</button>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay"></div>
+        <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Anterior">&#8249;</button>
+        <img class="lightbox-img" src="" alt="Bella Café">
+        <button class="lightbox-nav lightbox-next" aria-label="Siguiente">&#8250;</button>
+    </div>
+
+    <!-- Location Section -->
+    <section class="location" id="ubicacion">
+        <div class="section-header fade-in">
+            <h2>Encuéntranos</h2>
+            <p>Te esperamos en Zihuatanejo</p>
+        </div>
+        <div class="location-content">
+            <div class="location-info fade-in">
+                <h3>Visítanos</h3>
+                <div class="location-detail">
+                    <span class="location-detail-icon">📍</span>
+                    <div class="location-detail-text">
+                        <h4>Dirección</h4>
+                        <p>Av. Las Huertas, esq. Mar de Java, Centro<br>Zihuatanejo, Guerrero, México</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">🕐</span>
+                    <div class="location-detail-text">
+                        <h4>Horario</h4>
+                        <p>Lunes a Viernes: 7:00 AM - 9:00 PM<br>Sábado y Domingo: 8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">📱</span>
+                    <div class="location-detail-text">
+                        <h4>Teléfono</h4>
+                        <p>+52 755 123 4567</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">💬</span>
+                    <div class="location-detail-text">
+                        <h4>WhatsApp</h4>
+                        <p>+52 755 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3802.104637985461!2d-101.55339282544023!3d17.645202446348428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84347712f32fbe55%3A0x5c06a28a43bfe0ea!2sMar%20de%20Java%2C%20Las%20Huertas%2C%20Zihuatanejo%2C%20Gro.!5e0!3m2!1ses!2smx!4v1773270394650!5m2!1ses!2smx" width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-header fade-in">
+            <h2>Contáctanos</h2>
+            <p>¿Preguntas o comentarios? Escríbenos</p>
+        </div>
+        <form class="contact-form fade-in">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Bella <span>Café</span></div>
+        <p class="footer-tagline">Un tintico por favor</p>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+        <p class="copyright">© 2026 Bella Café. Todos los derechos reservados. Desarrollado por <a href="https://carlos-arias.dev/" target="_blank">Carlos Arias</a></p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

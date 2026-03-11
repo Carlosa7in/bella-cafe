@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bella Café - Un tintico por favor. Café de especialidad en Zihuatanejo, Guerrero. Bebidas calientes, frías, smoothies, sodas italianas y pasteles artesanales.">
+    <title>Bella Café | Un tintico por favor</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --cafe-brown: #8B5A2B;
+            --orange-accent: #F26522;
+            --dark-brown: #5D4037;
+            --cream: #FDF8F3;
+            --white: #FFFFFF;
+            --shadow: rgba(139, 90, 43, 0.15);
+            --shadow-hover: rgba(139, 90, 43, 0.25);
+        }
+
+        /* ===== Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            color: var(--dark-brown);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== Typography ===== */
+        h1, h2, h3 {
+            font-family: 'Pacifico', cursive;
+            color: var(--cafe-brown);
+            font-weight: 400;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: var(--cafe-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--orange-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange-accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--cafe-brown);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 90, 43, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            animation: steam 3s ease-in-out infinite;
+        }
+
+        @keyframes steam {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--orange-accent);
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: var(--dark-brown);
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--orange-accent);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(242, 101, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--cafe-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 90, 43, 0.4);
+        }
+
+        /* ===== Section Styles ===== */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '☕';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        .section-header p {
+            margin: 0 auto;
+            color: var(--dark-brown);
+            opacity: 0.8;
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--cafe-brown), var(--orange-accent));
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        /* ===== Menu Section ===== */
+        .menu {
+            background: var(--cream);
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-category {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .menu-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px var(--shadow-hover);
+        }
+
+        .menu-category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-category h3 {
+            margin-bottom: 1rem;
+            color: var(--cafe-brown);
+        }
+
+        .menu-category ul {
+            list-style: none;
+        }
+
+        .menu-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(139, 90, 43, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-category li:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-name {
+            font-weight: 500;
+        }
+
+        .menu-item-price {
+            color: var(--orange-accent);
+            font-weight: 600;
+        }
+
+        /* ===== Location Section ===== */
+        .location {
+            background: var(--white);
+        }
+
+        .location-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .location-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--cafe-brown);
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-detail-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .location-detail-text h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            color: var(--cafe-brown);
+            margin-bottom: 0.3rem;
+        }
+
+        .location-detail-text p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, var(--cream), var(--white));
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--cafe-brown);
+            color: var(--dark-brown);
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact {
+            background: linear-gradient(135deg, var(--cafe-brown), var(--dark-brown));
+            color: var(--white);
+        }
+
+        .contact .section-header h2 {
+            color: var(--white);
+        }
+
+        .contact .section-header h2::after {
+            content: '✉️';
+        }
+
+        .contact .section-header p {
+            color: var(--cream);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--dark-brown);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--orange-accent);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--cream);
+            color: var(--cafe-brown);
+            transform: translateY(-2px);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--dark-brown);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--orange-accent);
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--cream);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--orange-accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== Mobile Responsive ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                order: -1;
+                height: 250px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2::after {
+                display: none;
+            }
+        }
+
+        /* ===== Scroll Animations ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Bella <span>Café</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <svg class="hero-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Coffee cup -->
+                <path d="M20 45 Q20 75, 50 75 Q80 75, 80 45 L80 40 L20 40 Z" fill="#8B5A2B" stroke="#8B5A2B" stroke-width="2"/>
+                <path d="M80 45 Q95 45, 95 55 Q95 65, 80 65" fill="none" stroke="#8B5A2B" stroke-width="4" stroke-linecap="round"/>
+                <!-- Steam -->
+                <path d="M35 30 Q30 20, 35 10" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <path d="M50 30 Q55 15, 50 5" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <path d="M65 30 Q60 20, 65 10" fill="none" stroke="#F26522" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                <!-- Leaf -->
+                <path d="M50 25 Q60 15, 55 5 Q50 15, 50 25" fill="#F26522"/>
+            </svg>
+            <h1>Bella <span>Café</span></h1>
+            <p class="tagline">Un tintico por favor</p>
+            <a href="#menu" class="cta-button">Ver Menú</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="section-header fade-in">
+            <h2>Nuestra Historia</h2>
+            <p>Donde cada taza cuenta una historia</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>En el corazón de Zihuatanejo nació <strong>Bella Café</strong>, un espacio donde el aroma del café de especialidad se mezcla con la brisa del Pacífico.</p>
+                <p>Creamos un refugio moderno y elegante para estudiantes, profesionales y amantes del buen café. Aquí, cada bebida es preparada con dedicación, desde nuestros expresos perfectamente extraídos hasta nuestras refrescantes sodas italianas.</p>
+                <p>Más que una cafetería, somos tu pausa perfecta en el paraíso.</p>
+            </div>
+            <div class="about-image fade-in">
+                <p>📸 Foto del interior de Bella Café aquí</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="section-header fade-in">
+            <h2>Nuestro Menú</h2>
+            <p>Bebidas artesanales y pasteles frescos</p>
+        </div>
+        <div class="menu-grid">
+            <!-- Bebidas Calientes -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">☕</div>
+                <h3>Bebidas Calientes</h3>
+                <ul>
+                    <li><span class="menu-item-name">Americano</span><span class="menu-item-price">$45</span></li>
+                    <li><span class="menu-item-name">Espresso</span><span class="menu-item-price">$35</span></li>
+                    <li><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Latte</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Mocha</span><span class="menu-item-price">$60</span></li>
+                </ul>
+            </div>
+
+            <!-- Bebidas Frías -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🧊</div>
+                <h3>Bebidas Frías</h3>
+                <ul>
+                    <li><span class="menu-item-name">Cold Brew</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Iced Latte</span><span class="menu-item-price">$60</span></li>
+                    <li><span class="menu-item-name">Frappé</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Iced Americano</span><span class="menu-item-price">$50</span></li>
+                </ul>
+            </div>
+
+            <!-- Tés y Tisanas -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🍵</div>
+                <h3>Tés y Tisanas</h3>
+                <ul>
+                    <li><span class="menu-item-name">Té Verde</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Té Negro</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Chai Latte</span><span class="menu-item-price">$55</span></li>
+                    <li><span class="menu-item-name">Matcha Latte</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Tisana de Frutas</span><span class="menu-item-price">$45</span></li>
+                </ul>
+            </div>
+
+            <!-- Smoothies -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🥤</div>
+                <h3>Smoothies</h3>
+                <ul>
+                    <li><span class="menu-item-name">Tropical</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Berry Blast</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Green Power</span><span class="menu-item-price">$70</span></li>
+                    <li><span class="menu-item-name">Mango Paradise</span><span class="menu-item-price">$65</span></li>
+                </ul>
+            </div>
+
+            <!-- Sodas Italianas -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🍹</div>
+                <h3>Sodas Italianas</h3>
+                <ul>
+                    <li><span class="menu-item-name">Frambuesa</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Maracuyá</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Lavanda</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Menta</span><span class="menu-item-price">$50</span></li>
+                </ul>
+            </div>
+
+            <!-- Pasteles -->
+            <div class="menu-category fade-in">
+                <div class="menu-category-icon">🥐</div>
+                <h3>Pasteles</h3>
+                <ul>
+                    <li><span class="menu-item-name">Croissant</span><span class="menu-item-price">$45</span></li>
+                    <li><span class="menu-item-name">Muffin del Día</span><span class="menu-item-price">$40</span></li>
+                    <li><span class="menu-item-name">Cheesecake</span><span class="menu-item-price">$65</span></li>
+                    <li><span class="menu-item-name">Brownie</span><span class="menu-item-price">$50</span></li>
+                    <li><span class="menu-item-name">Galletas (3 pzas)</span><span class="menu-item-price">$35</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="ubicacion">
+        <div class="section-header fade-in">
+            <h2>Encuéntranos</h2>
+            <p>Te esperamos en Zihuatanejo</p>
+        </div>
+        <div class="location-content">
+            <div class="location-info fade-in">
+                <h3>Visítanos</h3>
+                <div class="location-detail">
+                    <span class="location-detail-icon">📍</span>
+                    <div class="location-detail-text">
+                        <h4>Dirección</h4>
+                        <p>Calle Principal #123, Centro<br>Zihuatanejo, Guerrero, México</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">🕐</span>
+                    <div class="location-detail-text">
+                        <h4>Horario</h4>
+                        <p>Lunes a Viernes: 7:00 AM - 9:00 PM<br>Sábado y Domingo: 8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">📱</span>
+                    <div class="location-detail-text">
+                        <h4>Teléfono</h4>
+                        <p>+52 755 123 4567</p>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <span class="location-detail-icon">💬</span>
+                    <div class="location-detail-text">
+                        <h4>WhatsApp</h4>
+                        <p>+52 755 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-placeholder fade-in">
+                <p>🗺️ Mapa de Google Maps aquí<br><small>(Integrar iframe de Google Maps)</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-header fade-in">
+            <h2>Contáctanos</h2>
+            <p>¿Preguntas o comentarios? Escríbenos</p>
+        </div>
+        <form class="contact-form fade-in">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Bella <span>Café</span></div>
+        <p class="footer-tagline">Un tintico por favor</p>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+        <p class="copyright">© 2026 Bella Café. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
